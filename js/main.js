@@ -30,4 +30,22 @@ document.addEventListener("DOMContentLoaded", () => {
       .catch((err) => {
         console.error(err);
       });
-  });
+  }
+
+  function getCurrentWordArr() {
+    const numberOfGuessedWords = guessedWords.length;
+    return guessedWords[numberOfGuessedWords - 1];
+  }
+
+  function updateGuessedWords(letter) {
+    const currentWordArr = getCurrentWordArr();
+
+    if (currentWordArr && currentWordArr.length < 5) {
+      currentWordArr.push(letter);
+
+      const availableSpaceEl = document.getElementById(String(availableSpace));
+
+      availableSpace = availableSpace + 1;
+      availableSpaceEl.textContent = letter;
+    }
+  }
