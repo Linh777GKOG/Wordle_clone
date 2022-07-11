@@ -127,3 +127,16 @@ document.addEventListener("DOMContentLoaded", () => {
       gameBoard.appendChild(square);
     }
   }
+
+
+  function handleDeleteLetter() {
+    const currentWordArr = getCurrentWordArr();
+    const removedLetter = currentWordArr.pop();
+
+    guessedWords[guessedWords.length - 1] = currentWordArr;
+
+    const lastLetterEl = document.getElementById(String(availableSpace - 1));
+
+    lastLetterEl.textContent = "";
+    availableSpace = availableSpace - 1;
+  }
