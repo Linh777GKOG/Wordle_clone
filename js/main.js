@@ -92,3 +92,9 @@ document.addEventListener("DOMContentLoaded", () => {
         currentWordArr.forEach((letter, index) => {
           setTimeout(() => {
             const tileColor = getTileColor(letter, index);
+            const letterId = firstLetterId + index;
+            const letterEl = document.getElementById(letterId);
+            letterEl.classList.add("animate__flipInX");
+            letterEl.style = `background-color:${tileColor};border-color:${tileColor}`;
+          }, interval * index);
+        });
