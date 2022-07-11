@@ -65,7 +65,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
     return "rgb(181, 159, 59)";
   }
-    function handleSubmitWord() {
+  
+  
+  function handleSubmitWord() {
     const currentWordArr = getCurrentWordArr();
     if (currentWordArr.length !== 5) {
       window.alert("Word must be 5 letters");
@@ -84,3 +86,9 @@ document.addEventListener("DOMContentLoaded", () => {
         if (!res.ok) {
           throw Error();
         }
+
+         const firstLetterId = guessedWordCount * 5 + 1;
+        const interval = 200;
+        currentWordArr.forEach((letter, index) => {
+          setTimeout(() => {
+            const tileColor = getTileColor(letter, index);
