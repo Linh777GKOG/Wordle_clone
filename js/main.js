@@ -98,3 +98,13 @@ document.addEventListener("DOMContentLoaded", () => {
             letterEl.style = `background-color:${tileColor};border-color:${tileColor}`;
           }, interval * index);
         });
+
+         guessedWordCount += 1;
+
+        if (currentWord === word) {
+          window.alert("Congratulations!");
+        }
+
+        if (guessedWords.length === 6) {
+          window.alert(`Sorry, you have no more guesses! The word is ${word}.`);
+        }
