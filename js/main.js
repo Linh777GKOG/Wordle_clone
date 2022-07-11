@@ -65,3 +65,22 @@ document.addEventListener("DOMContentLoaded", () => {
 
     return "rgb(181, 159, 59)";
   }
+    function handleSubmitWord() {
+    const currentWordArr = getCurrentWordArr();
+    if (currentWordArr.length !== 5) {
+      window.alert("Word must be 5 letters");
+    }
+
+    const currentWord = currentWordArr.join("");
+
+    fetch(`https://wordsapiv1.p.rapidapi.com/words/${currentWord}`, {
+      method: "GET",
+      headers: {
+        "x-rapidapi-host": "wordsapiv1.p.rapidapi.com",
+        "x-rapidapi-key": "61c5e3986dmsh20c1bee95c2230dp18d1efjsn4668bbcfc1b3",
+      },
+    })
+      .then((res) => {
+        if (!res.ok) {
+          throw Error();
+        }
